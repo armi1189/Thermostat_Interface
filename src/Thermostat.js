@@ -1,5 +1,6 @@
 function Thermostat() {
   this.temperature = 20;
+  this.powerSave = true;
   this.minimum = 10;
 };
 

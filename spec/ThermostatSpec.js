@@ -22,6 +22,11 @@ describe("Thermostat", function() {
     expect(thermostat.powerSave).toBe(true);
   });
 
+  it("has a switch to change 'Power Save' status", function() {
+    thermostat.powerSaveSwitch();
+    expect(thermostat.powerSave).toBe(false);
+  });
+
   it("has minimum temperature of 10", function() {
     expect(thermostat.minimum).toEqual(10);
   });
