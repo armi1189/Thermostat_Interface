@@ -1,6 +1,8 @@
 describe("Thermostat", function() {
 
-  thermostat = new Thermostat();
+  beforeEach(function() {
+    thermostat = new Thermostat();
+  });
 
   it("has a default temperature of 20 degrees", function() {
     expect(thermostat.temperature).toEqual(20);
@@ -14,5 +16,9 @@ describe("Thermostat", function() {
   it("can decrease temperature with 'down' button", function() {
     thermostat.decrease();
     expect(thermostat.temperature).toEqual(19);
+  });
+
+  it("has minimum temperature of 10", function() {
+    expect(thermostat.minimum).toEqual(10);
   });
 });
