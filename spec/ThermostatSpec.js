@@ -9,13 +9,15 @@ describe("Thermostat", function() {
   });
 
   it("can increase temperature with 'up' button", function() {
+    newTemperature = (thermostat.temperature + 1)
     thermostat.increase();
-    expect(thermostat.temperature).toEqual(21);
+    expect(thermostat.temperature).toEqual(newTemperature);
   });
 
   it("can decrease temperature with 'down' button", function() {
+    newTemperature = (thermostat.temperature - 1)
     thermostat.decrease();
-    expect(thermostat.temperature).toEqual(19);
+    expect(thermostat.temperature).toEqual(newTemperature);
   });
 
   it("has a 'Power Save' mode that's 'on' by default", function() {
@@ -32,7 +34,8 @@ describe("Thermostat", function() {
   });
 
   it("cannot go under his minimum temperature", function() {
-    var count = (thermostat.temperature - thermostat.minimum + 1);
+    var decreaseTimes = (thermostat.temperature - thermostat.minimum + 1);
+    var count = decreaseTimes;
     for (i=0; i < count; i++) {
       thermostat.decrease();
     };
@@ -49,7 +52,8 @@ describe("Thermostat", function() {
   });
 
   it("cannot go over maximum temperature if Power Save is on", function() {
-    var count = (thermostat.maximum - thermostat.temperature + 1);
+    var increaseTimes = (thermostat.maximum - thermostat.temperature + 1);
+    var count = increaseTimes;
     for (i=0; i < count; i++) {
       thermostat.increase();
     }
@@ -58,7 +62,8 @@ describe("Thermostat", function() {
 
   it("cannot go over maximum temperature if Power Save is off", function() {
     thermostat.powerSaveSwitch();
-    var count = (thermostat.maximum - thermostat.temperature + 1);
+    var increaseTimes = (thermostat.maximum - thermostat.temperature + 1);
+    var count = increaseTimes;
     for (i=0; i < count; i++) {
       thermostat.increase();
     }
