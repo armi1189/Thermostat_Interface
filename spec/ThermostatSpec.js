@@ -7,7 +7,12 @@ describe("Thermostat", function() {
   });
 
   it("can increase temperature with 'up' button", function() {
-    thermostat.increase
+    thermostat.increase();
     expect(thermostat.temperature).toEqual(21);
+  });
+
+  it("can decrease temperature with 'down' button", function() {
+    thermostat.decrease();
+    expect(thermostat.temperature).toEqual(19);
   });
 });
