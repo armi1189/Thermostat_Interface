@@ -17,6 +17,7 @@ Thermostat.prototype.decrease = function() {
 Thermostat.prototype.powerSaveSwitch = function() {
   this.powerSave = !(this.powerSave);
   this.maximum = this.powerSaveCheck();
+  if (this.temperature > this.maximum) this.temperature = this.maximum;
 };
 
 Thermostat.prototype.powerSaveCheck = function() {
