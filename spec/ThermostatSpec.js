@@ -32,11 +32,11 @@ describe("Thermostat", function() {
   });
 
   it("cannot go under his minimum temperature", function() {
-    var count = 11;
+    var count = (thermostat.temperature - thermostat.minimum + 1);
     for (i=0; i < count; i++) {
       thermostat.decrease();
     };
-    expect(thermostat.temperature).toEqual(10);
+    expect(thermostat.temperature).toEqual(thermostat.minimum);
   });
 
   it("has a maximum temperature of 25 if Power Save is on", function() {
@@ -49,11 +49,25 @@ describe("Thermostat", function() {
   });
 
   it("cannot go over maximum temperature if Power Save is on", function() {
-    var count = 6;
+    var count = (thermostat.maximum - thermostat.temperature + 1);
     for (i=0; i < count; i++) {
       thermostat.increase();
     }
-    expect(thermostat.temperature).toEqual(25);
+    expect(thermostat.temperature).toEqual(thermostat.maximum);
+  });
+
+  it("cannot go over maximum temperature if Power Save is off", function() {
+    thermostat.powerSaveSwitch();
+    var count = (thermostat.maximum - thermostat.temperature + 1);
+    for (i=0; i < count; i++) {
+      thermostat.increase();
+    }
+    expect(thermostat.temperature).toEqual(thermostat.maximum);
+  });
+
+  it("has a reset button to resets the temperature to default temperature", function() {
+    thermostat.resetButton();
+    expect(thermostat.temperature).toEqual(thermostat.defaultTemperature);
   });
 
 });

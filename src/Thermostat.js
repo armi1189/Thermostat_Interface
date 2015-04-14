@@ -6,7 +6,7 @@ function Thermostat() {
 };
 
 Thermostat.prototype.increase = function() {
-  this.temperature ++;
+  if (this.temperature < this.maximum) this.temperature ++;
 };
 
 Thermostat.prototype.decrease = function() {
