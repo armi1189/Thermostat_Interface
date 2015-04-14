@@ -66,6 +66,7 @@ describe("Thermostat", function() {
   });
 
   it("has a reset button to resets the temperature to default temperature", function() {
+    thermostat.increase();
     thermostat.resetButton();
     expect(thermostat.temperature).toEqual(thermostat.defaultTemperature);
   });
