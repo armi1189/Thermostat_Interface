@@ -8,5 +8,5 @@ Thermostat.prototype.increase = function() {
 };
 
 Thermostat.prototype.decrease = function() {
-  this.temperature --;
+  if (this.temperature > this.minimum) this.temperature --;
 };
