@@ -43,4 +43,9 @@ describe("Thermostat", function() {
     expect(thermostat.maximum).toEqual(25);
   });
 
+  it("has a maximum temperature of 32 if Power Save is off", function() {
+    thermostat.powerSaveSwitch();
+    expect(thermostat.maximum).toEqual(32);
+  });
+
 });
