@@ -48,4 +48,12 @@ describe("Thermostat", function() {
     expect(thermostat.maximum).toEqual(32);
   });
 
+  it("cannot go over maximum temperature if Power Save is on", function() {
+    var count = 6;
+    for (i=0; i < count; i++) {
+      thermostat.increase();
+    }
+    expect(thermostat.temperature).toEqual(25);
+  });
+
 });
