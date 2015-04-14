@@ -11,3 +11,7 @@ Thermostat.prototype.increase = function() {
 Thermostat.prototype.decrease = function() {
   if (this.temperature > this.minimum) this.temperature --;
 };
+
+Thermostat.prototype.powerSaveSwitch = function() {
+  this.powerSave = !(this.powerSave);
+};
