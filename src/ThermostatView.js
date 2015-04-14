@@ -27,6 +27,11 @@ $(document).ready(function() {
     else SwitchStatus('Off')
   };
 
+  function temperatureConverter(temp){
+    temp = temp - 273.15
+    return temp.toFixed(1);
+  }
+
   view()
   PowerSaveSwitch()
 
@@ -51,4 +56,16 @@ $(document).ready(function() {
     view();
   });
 
+  var OpenWeather = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk'
+
+  $.getJSON(OpenWeather, function(data) {
+    getTemp = data.main.temp;
+    temp = temperatureConverter(getTemp);
+    $('#outsideTemperature').html(temp);
+  });
+
+
+
 });
+
+// api.openweathermap.org/data/2.5/weather?q=London,uk
