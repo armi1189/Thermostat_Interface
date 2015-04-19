@@ -1,3 +1,65 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 .thermostat {
-  font-size: 2em;
+  width: 250px;
+  padding: 25px;
+  margin: 0 auto;
+  border: 1px solid #1e1e1e;
+  border-radius: 4px;
+}
+
+.temperature {
+  text-align: center;
+}
+
+.view {
+  font-size: 2.5em;
+  font-family:;
+}
+
+.degrees {
+  position: absolute;
+}
+
+.buttons {
+  text-align: center;
+  margin: 13px 0;
+}
+
+.up_and_down {
+  margin: 8px 0;
+}
+
+.up_and_down button {
+  background-color: #fff;
+  border: 1px solid #1e1e1e;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.reset_powersave button {
+  background-color: #fff;
+  border: 1px solid #1e1e1e;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.info {
+  margin: 15px 0 0 0;
+  text-align: center;
+  line-height: 1.5em;
 }

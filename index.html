@@ -2,20 +2,39 @@
   <head>
     <title>Thermostat</title>
     <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="src/Thermostat.js"></script>
     <script src="src/ThermostatView.js"></script>
   </head>
   <body>
-    <section class="thermostat"><span id="view"></span>°</section>
-    <button id="buttonUp">Up</button>
-    <button id="buttonDown">Down</button>
-    <button id="buttonReset">Reset</button>
-    <button id="powerSaveSwitch">Switch</button>
 
-    <section>Power Save: <span id="powerSave"></span></section>
+    <section class="container">
+    <div class="thermostat">
 
-    <section>Temperature in London is: <span id="outsideTemperature"></span>°</section>
+      <section class="temperature">
+        <span class="view"></span>
+        <span class="degrees">°</span>
+      </section>
+
+      <section class="buttons">
+        <aside class="up_and_down">
+          <button class="buttonUp">&#8593;</button>
+          <button class="buttonDown">&#8595;</button>
+        </aside>
+        <aside class="reset_powersave">
+          <button id="buttonReset">RESET</button>
+          <button id="powerSaveSwitch">POWER SAVE</button>
+        </aside>
+      </section>
+
+      <section class="info">
+        <aside>Power Save: <span id="powerSave"></span></aside>
+        <marquee>Today London temperature: <span id="outsideTemperature"></span>°</marquee>
+      </section>
+
+    </div>
+    </section>
   </body>
 </html>

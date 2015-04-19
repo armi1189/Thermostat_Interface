@@ -1,9 +1,16 @@
 $(document).ready(function() {
   
   var thermostat = new Thermostat();
+  var OpenWeather = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk'
+
+  $.getJSON(OpenWeather, function(data) {
+    getTemp = data.main.temp;
+    temp = temperatureConverter(getTemp);
+    $('#outsideTemperature').html(temp);
+  });
 
   function changeColor(swap){
-    $('.thermostat').css("color", swap);
+    $('.view').css("color", swap);
   };
 
   function color(){
@@ -15,7 +22,7 @@ $(document).ready(function() {
 
   function view(){
     color()
-    $('#view').html(thermostat.temperature);
+    $('.view').html(thermostat.temperature);
   };
 
   function SwitchStatus(swap){
@@ -35,12 +42,12 @@ $(document).ready(function() {
   view()
   PowerSaveSwitch()
 
-  $('#buttonUp').click (function() {
+  $('.buttonUp').click (function() {
     thermostat.increase();
     view();
   });
 
-  $('#buttonDown').click (function() {
+  $('.buttonDown').click (function() {
     thermostat.decrease();
     view();
   });
@@ -56,16 +63,4 @@ $(document).ready(function() {
     view();
   });
 
-  var OpenWeather = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk'
-
-  $.getJSON(OpenWeather, function(data) {
-    getTemp = data.main.temp;
-    temp = temperatureConverter(getTemp);
-    $('#outsideTemperature').html(temp);
-  });
-
-
-
 });
-
-// api.openweathermap.org/data/2.5/weather?q=London,uk
