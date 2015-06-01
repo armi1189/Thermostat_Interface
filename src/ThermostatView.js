@@ -1,11 +1,12 @@
 $(document).ready(function() {
   
   var thermostat = new Thermostat();
-  var OpenWeather = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk'
+  var WorldWeather = 'https://api.worldweatheronline.com/free/v2/weather.ashx?q=London&format=json&key=56b22ed050b5c0012431a90e55ab8'
+  var temp;
 
-  $.getJSON(OpenWeather, function(data) {
-    getTemp = data.main.temp;
-    temp = temperatureConverter(getTemp);
+  $.getJSON(WorldWeather, function(data) {
+    temp = data.data.current_condition[0].temp_C;
+  }).done(function() {
     $('#outsideTemperature').html(temp);
   });
 
@@ -33,11 +34,6 @@ $(document).ready(function() {
     if (thermostat.powerSave) SwitchStatus('On')
     else SwitchStatus('Off')
   };
-
-  function temperatureConverter(temp){
-    temp = temp - 273.15
-    return temp.toFixed(1);
-  }
 
   view()
   PowerSaveSwitch()
