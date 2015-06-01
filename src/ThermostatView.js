@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
   var thermostat = new Thermostat();
-  var OpenWeather = 'https://api.openweathermap.org/data/2.5/weather?q=London,uk'
+  var OpenWeather = 'api.openweathermap.org/data/2.5/weather?q=London,uk'
 
   $.getJSON(OpenWeather, function(data) {
     getTemp = data.main.temp;
