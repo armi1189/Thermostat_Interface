@@ -2,7 +2,7 @@ describe('Thermostat web view',function(){
 
   beforeEach(function(){
     jasmine.getFixtures().fixturesPath = '.';
-    loadFixtures('index.html');
+    loadFixtures('home.html');
     $.holdReady(false);
   });
 
