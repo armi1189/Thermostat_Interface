@@ -10,9 +10,9 @@ It also provide the current London temperature trough World Weather free API.
 -----
 Tools
 -----
--Develop: JavaScript, JQuery, HTML, CSS
--Test: Jasmine, Jasmine JQuery
--API: World Weather Online
+-Develop: JavaScript, JQuery, HTML, CSS  
+-Test: Jasmine, Jasmine JQuery  
+-API: World Weather Online  
 
 ![Thermostat](https://github.com/armi1189/Thermostat_Interface/blob/master/public/img/thermostat1.jpg)
   
